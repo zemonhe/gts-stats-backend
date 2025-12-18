@@ -1,12 +1,8 @@
-
 services:
   - type: web
     name: gts-stats-backend
     env: python
     plan: free
-    buildCommand: pip install -r app/requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
-    envVars:
-      - key: FOOTBALL_DATA_API_TOKEN
-        value: bc4181a9b7b24c1895d7175ee88e6e4f
-
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    # NUNCA coloque tokens aqui! Configure como variável de ambiente no painel do Render
