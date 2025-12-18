@@ -1,14 +1,22 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from fastapi import FastAPI, Body, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
-import os, io, requests, pandas as pd
+import io
+import requests
+import pandas as pd
 from datetime import datetime
 from typing import Optional, List
+
+# AGORA estes imports vão funcionar
 from features import to_result_label, build_match_features
 from trainer import build_model, evaluate, backtest, save_model, load_model
 
+# ... resto do seu código permanece igual ...
 load_dotenv()
 API_TOKEN = os.getenv("FOOTBALL_DATA_API_TOKEN")
 BASE = "https://api.football-data.org/v4"
