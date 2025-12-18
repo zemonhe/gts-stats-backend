@@ -4,5 +4,4 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r app/requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
-    # NUNCA coloque tokens aqui! Configure como variável de ambiente no painel do Render
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
