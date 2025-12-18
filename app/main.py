@@ -156,7 +156,7 @@ def predict(b: PredictBody):
     model = bundle["model"] if isinstance(bundle, dict) else bundle
     proba = model.predict_proba(pred_df.drop(columns=["date","result"]))
     classes = ["H","D","A"]; import numpy as np
-    top = np.array(classes)[np.argmax    top = np.array(classes)[np.argmax(proba, axis=1)]
+    top = np.array(classes)[np.argmax(proba, axis=1)]
     out = pred_df[["date","league","season","home_team","away_team"]].copy()
     out["prob_home"] = proba[:,0]; out["prob_draw"]=proba[:,1]; out["prob_away"]=proba[:,2]
     out["pred_class"] = top
