@@ -24,4 +24,5 @@ def build_match_features(df: pd.DataFrame) -> pd.DataFrame:
         base[f"diff_ppg_{w}"] = base[f"home_ppg_{w}"] - base[f"away_ppg_{w}"]
         base[f"diff_gf_{w}"]  = base[f"home_gf_{w}"]  - base[f"away_gf_{w}"]
         base[f"diff_ga_{w}"]  = base[f"home_ga_{w}"]  - base[f"away_ga_{w}"]
-    base = base.dropna(subset=["home_ppg_5","away_ppg_5","home_g    base = base.dropna(subset=["home_ppg_5","away_ppg_5","home_gf_5","away_gf_5","home_ga_5","away_ga_5"])
+    base = base.dropna(subset=["home_ppg_5","away_ppg_5","home_gf_5","away_gf_5","home_ga_5","away_ga_5"])
+    return base
