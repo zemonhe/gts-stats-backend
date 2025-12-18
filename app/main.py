@@ -161,3 +161,11 @@ def predict(b: PredictBody):
     out["prob_home"] = proba[:,0]; out["prob_draw"]=proba[:,1]; out["prob_away"]=proba[:,2]
     out["pred_class"] = top
     out.to_csv(os.path.join(OUT_DIR,"fixtures_predictions.csv"), index=False)
+    
+    return {
+        "status": "success",
+        "message": "Previsões geradas com sucesso",
+        "predictions_count": len(out),
+        "output_file": "outputs/fixtures_predictions.csv",
+        "generated_at": now_iso()
+    }
